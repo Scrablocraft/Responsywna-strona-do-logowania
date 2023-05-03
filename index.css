@@ -1,0 +1,204 @@
+body {
+    background: url("https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314__340.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    width: 800px;
+    margin: 15% auto;
+    height: 500px;
+}
+
+.side {
+    width: 40%;
+    margin: 0px auto;
+    padding: 15px;
+}
+
+article {
+    width: 400px;
+    height: 500px;
+    border-radius: 2%;
+    position: absolute;
+}
+
+/* przechodzenie skrzyde³ */
+
+article.right {
+    margin-left: 400px;
+    z-index: 1;
+    transition: margin-left 1.5s, background-color 1.5s, border-radius 1s 0.5s;
+    background-color: white;
+}
+
+article.left:focus + article.right, article.left:has(*:focus) + article.right {
+    margin-left: 0px;
+    background-color: red;
+}
+
+article.left {
+    transition: margin-left 1.5s, background-color 1.5s, border-radius 1s 0.5s;
+    background-color: red;
+}
+
+article.left:focus, article.left:has(*:focus) {
+    margin-left: 400px;
+    background-color: white;
+}
+
+
+
+/* divy na skrzyd³ach */
+
+div {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 12%;
+    left: 12.5%;
+    text-align: center;
+    display: block;
+}
+
+div > * {
+    margin-top: 20%;
+}
+
+
+
+/* Zmiana zawartoœci menu */
+
+.left > .create {
+    transition: z-index 0s, opacity 1.5s;
+    transition-delay: 0.5s;
+    z-index: -5;
+    opacity: 0;
+}
+
+article.left:focus > .create, article.left:has(*:focus) > .create {
+    z-index: 1;
+    opacity: 1;
+}
+
+.left:focus > .log, .left:has(*:focus) > .log {
+    opacity: 0;
+    transition-property: opacity;
+    transition-delay: 0s;
+    transition-duration: 1s;
+}
+
+.left > .log {
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+}
+
+article.right > .create {
+    opacity: 0;
+    z-index: -5;
+}
+
+article.left:focus + article.right > .create, article.left:has(*:focus) + article.right > .create {
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+article.right > .create {
+    transition: opacity;
+}
+
+article.left:focus + article.right > .log, article.left:has(*:focus) + article.right > .log {
+    opacity: 0;
+    z-index: -5;
+    transition: opacity 1.5s;
+}
+
+.log {
+    transition: opacity 1.5s;
+}
+
+
+/* Wygl¹d menu */
+
+input {
+    margin: 2%;
+    font-size: 120%;
+    border-radius: 25px;
+    padding: 5%;
+    border: 0px;
+    background-color: rgb(243, 243, 243);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    margin-top: 10%;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+    height: 12%;
+    width: 55%;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10%;
+    font-size: 15px;
+    background: none;
+    font-weight: bold;
+    color: white;
+    border: white solid 2px;
+}
+
+form {
+    margin-top: 5%;
+}
+
+a[href="script_forgotten_password.php"] {
+    text-decoration: none;
+    color: lightgray;
+}
+
+footer {
+    margin-top: 10%;
+}
+
+h1.invitation {
+    margin-top: 40%;
+    margin-bottom: 0;
+    color: white;
+}
+
+p.invitation-description {
+    margin-top: 5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 0;
+    color: white;
+}
+
+button.logging {
+    background-color: red;
+    border-color: red;
+}
+
+.left {
+    border-radius: 2% 0 0 2%;
+    transition: border-radius 1s 0.5s;
+}
+
+.left:focus, .left:has(*:focus) {
+    border-radius: 0 2% 2% 0;
+}
+
+.right {
+    border-radius: 0 2% 2% 0;
+    transition: border-radius 1s 0.5s;
+}
+
+.left:focus + .right, .left:has(*:focus) + .right{
+    border-radius: 2% 0 0 2%;
+}
